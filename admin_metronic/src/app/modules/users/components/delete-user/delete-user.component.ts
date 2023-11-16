@@ -1,0 +1,32 @@
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { UsersService } from '../../_services/users.service';
+
+@Component({
+  selector: 'app-delete-user',
+  templateUrl: './delete-user.component.html',
+  styleUrls: ['./delete-user.component.scss']
+})
+export class DeleteUserComponent implements OnInit {
+
+  @Input() user_selected:any = null;
+  @Output() usersE: EventEmitter<any> = new EventEmitter();
+  isLoading$;
+  isLoading = false;
+  
+  constructor(
+    public _userService: UsersService,
+    public modal: NgbActiveModal, 
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  delete(){
+    this._userService.deleteUser(this.user_selected.id).subscribe((resp:any) => {
+      console.log(resp);
+      this.usersE.emit(this.user_selected);
+      this.modal.close();
+    })
+  }
+}
