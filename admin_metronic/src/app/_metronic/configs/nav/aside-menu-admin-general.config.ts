@@ -26,5 +26,21 @@ export const AsideMenuAdminGeneral = {
           }
         ]
       },
+      { section: 'Productos' },
+      {
+        title: 'Categorias',
+        root: true,
+        name: "categorias",
+        bullet: 'dot',
+        icon: 'flaticon2-user-outline-symbol',
+        svg: './assets/media/svg/icons/Electric/Gas-stove.svg',
+        page: '/categorias',
+        submenu: [
+          {
+            title: 'Gestion Categorias',
+            page: '/categorias/lista'
+          }
+        ]
+      },
     ]
 }
