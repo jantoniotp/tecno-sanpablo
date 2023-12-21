@@ -75,6 +75,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'products',
+        loadChildren: () =>
+          import('../modules/products/products.module').then(
+            (m) => m.ProductsModule
+          ),
+      },
+      {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full',

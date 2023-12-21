@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Product\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,14 @@ Route::group(['prefix' => 'users'], function($router) {
         Route::post('/register', [UserController::class, 'store']);
         Route::put('/update/{id}', [UserController::class, 'update']);
         Route::delete('/delete/{id}', [UserController::class, 'destroy']);
+    });
+});
+
+Route::group(['prefix' => 'products'], function($router) {
+    Route::group(['prefix' => 'categories'], function() {
+        Route::get('/all', [CategorieController::class, 'index']);
+        Route::post('/add', [CategorieController::class, 'store']);
+        Route::post('/update/{id}', [CategorieController::class, 'update']);
+        Route::delete('/delete/{id}', [CategorieController::class, 'destroy']);
     });
 });

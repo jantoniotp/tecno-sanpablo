@@ -10,7 +10,7 @@ export const AsideMenuAdminGeneral = {
         translate: 'MENU.DASHBOARD',
         bullet: 'dot',
       },
-      { section: 'Usuario' },
+      { section: 'Usuarios' },
       {
         title: 'Usuarios',
         root: true,
@@ -26,7 +26,7 @@ export const AsideMenuAdminGeneral = {
           }
         ]
       },
-      { section: 'Productos' },
+      { section: 'Categorias' },
       {
         title: 'Categorias',
         root: true,
@@ -39,6 +39,22 @@ export const AsideMenuAdminGeneral = {
           {
             title: 'Gestion Categorias',
             page: '/categorias/lista'
+          }
+        ]
+      },
+      { section: 'Productos' },
+      {
+        title: 'Productos',
+        root: true,
+        name: "products",
+        bullet: 'dot',
+        icon: 'flaticon2-user-outline-symbol',
+        svg: './assets/media/svg/icons/Home/Armchair.svg',
+        page: '/products',
+        submenu: [
+          {
+            title: 'Crear producto',
+            page: '/products/add-product'
           }
         ]
       },
